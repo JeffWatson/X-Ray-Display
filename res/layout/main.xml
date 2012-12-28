@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>   		    
+<ScrollView
+		xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads" 	
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" 
+        android:fillViewport="true">
+
+		<RelativeLayout	    
+    		android:layout_width="fill_parent"
+   		 	android:layout_height="wrap_content"
+    		android:orientation="vertical" 
+    		android:gravity="fill_vertical">
+
+
+    		
+    		<CheckBox
+        		android:id="@+id/checkBoxPersistence"
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:text="@string/Persistence" />
+    
+    		<TextView 
+        		android:id="@+id/text_view_xOffset"
+        		android:layout_width="fill_parent"
+        		android:layout_height="wrap_content"
+        		android:layout_below="@+id/checkBoxPersistence"
+        		android:text = "@string/xOffset"/>
+    
+    		<SeekBar
+        		android:id="@+id/seekBarX"
+        		android:layout_width="match_parent"
+        		android:layout_height="wrap_content" 
+        		android:layout_below="@+id/text_view_xOffset"/>
+    
+    		<TextView 
+        		android:id="@+id/text_view_yOffset"
+        		android:layout_width="fill_parent"
+        		android:layout_height="wrap_content"
+        		android:text="@string/yOffset"
+        		android:layout_below="@+id/seekBarX"/>
+
+    		<SeekBar
+       			android:id="@+id/seekBarY"
+        		android:layout_width="match_parent"
+        		android:layout_height="wrap_content" 
+        		android:layout_below="@+id/text_view_yOffset"/>
+    
+    		<TextView 
+    		    android:id="@+id/text_view_gravity"
+       			android:layout_width="fill_parent"
+        		android:layout_height="wrap_content"
+        		android:text="@string/gravity_prompt" 
+        		android:layout_below="@+id/seekBarY"/>
+        
+    		<Spinner
+        		android:id="@+id/gravity_spinner"
+        		android:layout_width="fill_parent"
+        		android:layout_height="wrap_content"
+        		android:prompt="@string/gravity_prompt" 
+        		android:layout_below="@+id/text_view_gravity"/>
+    		
+    		<TextView
+    		    android:id="@+id/text_view_resolution"
+    		    android:layout_width="fill_parent"
+    		    android:layout_height="wrap_content"
+    		    android:layout_below="@+id/gravity_spinner"
+    		    android:text="@string/window_resolution" />
+    
+    		<Spinner
+        		android:id="@+id/frame_size_spinner"
+        		android:layout_width="fill_parent"
+        		android:layout_height="wrap_content" 
+        		android:layout_below="@+id/text_view_resolution"/>
+    
+      		<CheckBox
+        		android:id="@+id/checkBoxTransparency"
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:text="@string/Transparency" 
+        		android:layout_below="@+id/frame_size_spinner"/>  
+        		
+      		<TextView 
+    		    android:id="@+id/text_view_trans_level"
+       			android:layout_width="fill_parent"
+        		android:layout_height="wrap_content"
+        		android:text="@string/trans_level" 
+        		android:layout_below="@+id/checkBoxTransparency"/>
+        		
+      		<SeekBar 
+      		    android:id="@+id/seekBarTransparency"
+      		    android:layout_width="fill_parent"
+      		    android:layout_height="wrap_content"
+      		    android:layout_below="@+id/text_view_trans_level"/>
+      		
+      		<TextView 
+        		android:id="@+id/text_view_compression"
+        		android:layout_width="fill_parent"
+        		android:layout_height="wrap_content"
+        		android:text="@string/compression" 
+        		android:layout_below="@+id/seekBarTransparency"/>
+    
+    		<SeekBar
+    			android:id="@+id/seekBarCompression"
+    			android:layout_width="fill_parent"
+    			android:layout_height="wrap_content" 
+    			android:layout_below="@+id/text_view_compression"/>
+    		
+    		<Button
+    		    android:id="@+id/start_button"
+        		android:layout_width="fill_parent"
+       			android:layout_height="wrap_content"
+       			android:text="@string/start_stop_button_text"
+        		android:onClick="startService" 
+        		android:layout_below="@+id/seekBarCompression"/>
+    		
+    		<com.google.ads.AdView android:id="@+id/adView" 
+    		    android:layout_below="@+id/start_button"
+    		    android:layout_alignParentBottom="true"			
+        		android:layout_centerHorizontal="true"
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		ads:adUnitId="a15016ee7829ac7"
+        		ads:adSize="BANNER"
+        		ads:testDevices="DCCF81A78941E92C742B629494251FD2"
+        		ads:loadAdOnCreate="true"/>                
+	
+	</RelativeLayout>
+	
+</ScrollView>
+
+
