@@ -80,7 +80,7 @@ public class CameraViewOverlay extends SurfaceView implements Callback {
 	/* (non-Javadoc)
 	 * @see android.view.SurfaceHolder.Callback#surfaceChanged(android.view.SurfaceHolder, int, int, int)
 	 */
-	@Override
+	//@Override
 	public void surfaceChanged(SurfaceHolder arg0, int arg1, int arg2, int arg3) {
 		Log.i("CameraViewOverlay", "entering surface change");
 		// If your preview can change or rotate, take care of those events here.
@@ -92,7 +92,7 @@ public class CameraViewOverlay extends SurfaceView implements Callback {
 	/* (non-Javadoc)
 	 * @see android.view.SurfaceHolder.Callback#surfaceCreated(android.view.SurfaceHolder)
 	 */
-	@Override
+	//@Override
 	public void surfaceCreated(SurfaceHolder holder) {
 		Log.i("CameraViewOverlay", "entering surface created");
 		
@@ -170,7 +170,7 @@ public class CameraViewOverlay extends SurfaceView implements Callback {
 	/* (non-Javadoc)
 	 * @see android.view.SurfaceHolder.Callback#surfaceDestroyed(android.view.SurfaceHolder)
 	 */
-	@Override
+	//@Override
 	public void surfaceDestroyed(SurfaceHolder holder) {
 		isLoaded = false;
 		

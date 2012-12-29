@@ -176,7 +176,7 @@ public class CameraViewOverlayTransparent extends CameraViewOverlay implements C
      * @author Jeff Watson
      * Convert data from camera to a image that can have transparency
      */
-	@Override
+	//@Override
 	public void onPreviewFrame(byte[] data, Camera camera) {
 		
 		// YUV formats require more conversion
