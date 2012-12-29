@@ -73,7 +73,7 @@ public class WalkingDisplayActivity extends Activity {
         	CheckBox dialogCheckBox = (CheckBox) layout.findViewById(R.id.dialog_checkbox);
         	dialogCheckBox.setOnCheckedChangeListener(new OnCheckedChangeListener(){
 
-				@Override
+				//@Override
 				public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
 					// TODO Auto-generated method stub
 					showWelcomeDialog = arg1;
@@ -296,7 +296,7 @@ public class WalkingDisplayActivity extends Activity {
     	
     	boxTransparency.setOnCheckedChangeListener(new OnCheckedChangeListener(){
 
-			@Override
+			//@Override
 			public void onCheckedChanged(CompoundButton buttonView,
 					boolean isChecked) {
 				transparency = isChecked;
@@ -308,7 +308,7 @@ public class WalkingDisplayActivity extends Activity {
     	
     	boxPersistance.setOnCheckedChangeListener(new OnCheckedChangeListener(){
 
-			@Override
+			//@Override
 			public void onCheckedChanged(CompoundButton buttonView,
 					boolean isChecked) {
 				persistance = isChecked;
@@ -401,8 +401,8 @@ public class WalkingDisplayActivity extends Activity {
     {
     	SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
     	
-    	xOffset = prefs.getInt("xOffset", 100);
-    	yOffset = prefs.getInt("yOffset", 100);
+    	xOffset = prefs.getInt("xOffset", 0);
+    	yOffset = prefs.getInt("yOffset", 0);
     	mGravity = prefs.getInt("mGravity", 48);
     	mPreviewHeight = prefs.getInt("mPreviewHeight", 300);
     	mPreviewWidth = prefs.getInt("mPreviewWidth", 300);
@@ -482,19 +482,19 @@ public class WalkingDisplayActivity extends Activity {
 
     	barX.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
 
-    	    @Override
+    	    //@Override
     	    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
     	        xOffset = progress;
     	    	text_xOffset.setText(R.string.xOffset);
     	    	text_xOffset.append(": " + xOffset + " " + getString(R.string.pixels));
     	    }
 
-    	    @Override
+    	    //@Override
     	    public void onStartTrackingTouch(SeekBar seekBar) {
 
     	    }
 
-    	    @Override
+    	   // @Override
     	    public void onStopTrackingTouch(SeekBar seekBar) {
 
     	    }
@@ -502,19 +502,19 @@ public class WalkingDisplayActivity extends Activity {
     	
     	barY.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
 
-    	    @Override
+    	    //@Override
     	    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
     	        yOffset = progress;
     	    	text_yOffset.setText(R.string.yOffset);
     	    	text_yOffset.append(": " + yOffset + " " + getString(R.string.pixels));
     	    }
 
-    	    @Override
+    	   // @Override
     	    public void onStartTrackingTouch(SeekBar seekBar) {
 
     	    }
 
-    	    @Override
+    	    //@Override
     	    public void onStopTrackingTouch(SeekBar seekBar) {
 
     	    }
@@ -522,19 +522,19 @@ public class WalkingDisplayActivity extends Activity {
     	
     	barComp.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
 
-    	    @Override
+    	    //@Override
     	    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
     	        compression = progress;
     	    	text_compression.setText(R.string.compression);
     	    	text_compression.append(": " + compression + "%");
     	    }
 
-    	    @Override
+    	    //@Override
     	    public void onStartTrackingTouch(SeekBar seekBar) {
 
     	    }
 
-    	    @Override
+    	    //@Override
     	    public void onStopTrackingTouch(SeekBar seekBar) {
 
     	    }
@@ -542,19 +542,19 @@ public class WalkingDisplayActivity extends Activity {
     	
     	barTrans.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
 
-    	    @Override
+    	    //@Override
     	    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
     	        transLevel = progress;
     	    	text_transLevel.setText(R.string.trans_level);
     	    	text_transLevel.append(": " + transLevel + "%");
     	    }
 
-    	    @Override
+    	    //@Override
     	    public void onStartTrackingTouch(SeekBar seekBar) {
 
     	    }
 
-    	    @Override
+    	    //@Override
     	    public void onStopTrackingTouch(SeekBar seekBar) {
 
     	    }
