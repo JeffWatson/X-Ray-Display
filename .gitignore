@@ -29,3 +29,5 @@ proguard.cfg
 *.ipr
 *.iws
 .idea/
+lint.xml
+.settings
