@@ -8,9 +8,9 @@
         <item>Left</item>      		<item>Center</item>	 <item>Right</item>
         <item>Bottom Left</item>	<item>Bottom</item>  <item >Bottom Right</item>
     </string-array>
-    <string name="gravity_prompt">Select Layout Gravity</string>
+    <string name="gravity_prompt">Window Location</string>
     <string name="Persistence">Enable Persistence Mode</string>
-    <string name="Transparency">Enable Window Transparency</string>
+    <string name="Transparency">Enable See Through Mode</string>
     <string name="error">Unable to access Camera</string>
     <string name="widget_text">X-Ray Toggle</string>
     <string name="widget_description">X-Ray Display Toggle Widget</string>
@@ -20,14 +20,14 @@
     <string name="trans_level">Transparency Level</string>
     <string name="menu_help">Help</string>
     <string name="dialog_help_title">X-Ray Display Tips</string>
-    <string name="dialog_help_body">Here\'s what you need to know:\nPersistence mode makes the window reappear after the screen turns back on. Otherwise, the X-Ray Display window is removed when your screen turns off.\n\nHorizontal and Vertical offsets move the window on the respective axes, and Gravity determines where the base window is placed.\n\nTransparency determines if the X-Ray Display window can be seen through. Lower compression levels make the images appear faster, transparency level controls how visible the window is.\n\n<u><b>It is highly recommended to make the window resolution around one-quarter the size of your device\'s screen.</b></u></string>
+    <string name="dialog_help_body">How to use X-Ray Display:\n\n1. Select a window size.\n2. Select a window location.\n3. Flip the switch at the top of the screen to the ON position.\n\n<u><b>It is highly recommended to make the window resolution around one-quarter the size of your device\'s screen.</b></u>\n\nAdditional Setting Explainations:\nPersistence mode makes the window reappear after the screen turns back on. Otherwise, the X-Ray Display window is removed when your screen turns off.\n\nHorizontal and Vertical offsets move the window on the respective axes, and Gravity determines where the base window is placed.\n\nTransparency determines if the X-Ray Display window can be seen through. Lower compression levels make the images appear faster, transparency level controls how visible the window is.</string>
     <string name="dialog_ok_text">Ok, thanks</string>
-    <string name="window_resolution">Window Resolution</string>
+    <string name="window_resolution">Window Size</string>
     <string name="dialog_error_body">An error occurred while accessing the camera. \n\nPlease close whatever is using the camera, and restart X-Ray Display.</string>
     <string name="dialog_error_title">Uh oh! Something went wrong.</string>
     <string name="dialog_welcome_title">Welcome to X-Ray Display!</string>
     <string name="dialog_show_next_time">Show this next time</string>
-    <string name="dialog_welcome_body">How to use X-Ray Display:\n\nFirst, explore the settings here in the application.\n\nThen, press the Start/Stop button to see straight through your device!\n\nFor more help, press the ? button.\n\n<b><u>For the best experience possible, configure your settings within the app, then add the X-Ray Display Widget to your home screen!</u></b></string>
+    <string name="dialog_welcome_body">How to use X-Ray Display:\n\nFirst, choose a window size, and location.\n\nThen, turn the switch to ON to see straight through your device!\n\nFor more help, press the ? button.\n\n<b><u>For the best experience possible, configure your settings within the app, then add the X-Ray Display Widget to your home screen!</u></b></string>
     <string name="pixels">pixels</string>
     <string name="notif_turn_off">Select to turn off X-Ray Display</string>
 
