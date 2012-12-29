@@ -2,7 +2,9 @@ package com.watson.WalkingDisplay;
 
 import java.util.Collections;
 import java.util.List;
+
 import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -14,21 +16,24 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class WalkingDisplayActivity extends Activity {
+public class WalkingDisplayActivity extends Activity implements OnCheckedChangeListener {
 	/*TODO 
 	 * 1. Add Some Explanations of settings, maybe a welcome? 
 	 * 2. Widget changes?
@@ -55,6 +60,7 @@ public class WalkingDisplayActivity extends Activity {
 	private SeekBar barComp = null;
 	private SeekBar barTrans = null;
 	private boolean showWelcomeDialog = true;
+	private Switch serviceSwitch;
 	
 	
     /** Called when the activity is first created. */
@@ -65,6 +71,10 @@ public class WalkingDisplayActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         restoreSharedPrefs();
+        
+        setupActionBar();
+        serviceSwitch.setChecked(CameraOverlayService.isServiceRunning);
+        serviceSwitch.setOnCheckedChangeListener(this);
         
         if(showWelcomeDialog)
         {
@@ -255,7 +265,21 @@ public class WalkingDisplayActivity extends Activity {
 
     }
     
-    @Override
+    private void setupActionBar() {
+
+        	    ActionBar actionBar = getActionBar();
+
+        	    ViewGroup v = (ViewGroup)LayoutInflater.from(this).inflate(R.layout.main_actionbar, null);
+        	    actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM, ActionBar.DISPLAY_SHOW_CUSTOM);
+        	    actionBar.setCustomView(v,
+        	    				new ActionBar.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT,
+        	                    ActionBar.LayoutParams.WRAP_CONTENT,
+        	                    Gravity.CENTER_VERTICAL | Gravity.RIGHT));
+
+        	    serviceSwitch = (Switch) v.findViewById(R.id.switch_service);		
+	}
+
+	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.walking_display_menu, menu);
@@ -436,7 +460,7 @@ public class WalkingDisplayActivity extends Activity {
     	
     }
     
-    public void startService(View v)
+    public void startService()
     {    	
     	saveSharedPrefs();
     	
@@ -560,5 +584,11 @@ public class WalkingDisplayActivity extends Activity {
     	    }
     	});
     }
+
+	public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+		// TODO Auto-generated method stub
+		serviceSwitch.setChecked(isChecked);
+		startService();
+	}
 }
 
