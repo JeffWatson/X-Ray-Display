@@ -99,7 +99,6 @@
         		android:layout_height="wrap_content"
         		ads:adUnitId="a15016ee7829ac7"
         		ads:adSize="BANNER"
-        		ads:testDevices="DCCF81A78941E92C742B629494251FD2"
         		ads:loadAdOnCreate="true"/>                
 	
 	</LinearLayout>
