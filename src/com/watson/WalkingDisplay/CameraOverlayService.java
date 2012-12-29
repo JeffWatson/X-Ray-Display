@@ -27,10 +27,8 @@ public class CameraOverlayService extends Service{
 		private static final String TAG = "CameraOverlayService";
 		private WindowManager wm;
 	    private NotificationManager mNM;
-	    //private Camera mCamera;
 	    private BroadcastReceiver mReceiver;
 	    private WindowManager.LayoutParams params;
-	    //private AppWidgetManager appWidgetManager;
 
 	    // Unique Identification Number for the Notification.
 	    // We use it on Notification start, and to cancel it.
@@ -38,7 +36,6 @@ public class CameraOverlayService extends Service{
 	    private CameraViewOverlay mView;
 	    private static RelativeLayout mLayout ;
 	    public static ImageView mTransImage;
-	    //private SurfaceView mView;
 	    
 	    private static int xOffset;
 	    private static int yOffset;
@@ -78,15 +75,12 @@ public class CameraOverlayService extends Service{
 	    	
 	    	//for adding and removing views from the main window
 	        wm = (WindowManager) getSystemService(WINDOW_SERVICE);
-	       // wm.getDefaultDisplay()
 	        
 	        //restore the saved settings, important for persistence	        
 	    	restoreSharedPrefs();
 	        
 	        //set the layout parameters
 	        params = new WindowManager.LayoutParams();
-	       
-	        
 
 	        params.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL;
 	        params.width = WindowManager.LayoutParams.WRAP_CONTENT;
@@ -202,10 +196,6 @@ public class CameraOverlayService extends Service{
 			wm.removeView(mLayout);
 			
 			Log.i(TAG, "View Removed from Window");
-    		
-    		
-    		//mLayout = null;
-    		//mView = null;
 		}
 
 		@Override

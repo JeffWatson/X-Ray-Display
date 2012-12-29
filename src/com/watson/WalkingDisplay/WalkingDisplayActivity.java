@@ -34,13 +34,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 public class WalkingDisplayActivity extends Activity implements OnCheckedChangeListener {
-	/*TODO 
-	 * 1. Add Some Explanations of settings, maybe a welcome? 
-	 * 2. Widget changes?
-	 * 2. Clean up code
-	 * 3. ????
-	 * 4. Profit
-	 */
 	
 	private final String TAG = "WalkingDisplayActivity";
 	
@@ -78,15 +71,12 @@ public class WalkingDisplayActivity extends Activity implements OnCheckedChangeL
         
         if(showWelcomeDialog)
         {
-        	//LayoutInflater inflater = getLayoutInflater();
         	View layout = View.inflate(this, R.layout.first_run_help_dialog, null);
         	CheckBox dialogCheckBox = (CheckBox) layout.findViewById(R.id.dialog_checkbox);
         	dialogCheckBox.setOnCheckedChangeListener(new OnCheckedChangeListener(){
 
-				//@Override
-				public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
-					// TODO Auto-generated method stub
-					showWelcomeDialog = arg1;
+				public void onCheckedChanged(CompoundButton arg0, boolean isChecked) {
+					showWelcomeDialog = isChecked;
 				}
         		
         	});
@@ -179,8 +169,6 @@ public class WalkingDisplayActivity extends Activity implements OnCheckedChangeL
         	class SizeOnItemSelectedListener implements OnItemSelectedListener {
 
         		public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-            	//Toast.makeText(parent.getContext(), parent.getItemAtPosition(pos).toString(), Toast.LENGTH_SHORT).show();
-            	            	
             		mPreviewHeight = sizeList.get(pos).height;
             		mPreviewWidth = sizeList.get(pos).width;
             		lastSizeSelection = pos;
@@ -320,7 +308,6 @@ public class WalkingDisplayActivity extends Activity implements OnCheckedChangeL
     	
     	boxTransparency.setOnCheckedChangeListener(new OnCheckedChangeListener(){
 
-			//@Override
 			public void onCheckedChanged(CompoundButton buttonView,
 					boolean isChecked) {
 				transparency = isChecked;
@@ -332,7 +319,6 @@ public class WalkingDisplayActivity extends Activity implements OnCheckedChangeL
     	
     	boxPersistance.setOnCheckedChangeListener(new OnCheckedChangeListener(){
 
-			//@Override
 			public void onCheckedChanged(CompoundButton buttonView,
 					boolean isChecked) {
 				persistance = isChecked;
@@ -382,33 +368,6 @@ public class WalkingDisplayActivity extends Activity implements OnCheckedChangeL
     	
     	
     }
-    
-    /*@Override
-    public void onSaveInstanceState(Bundle savedInstanceState) {
-      // Save UI state changes to the savedInstanceState.
-      // This bundle will be passed to onCreate if the process is
-      // killed and restarted.
-    	
-    	savedInstanceState.putInt("xOffset", xOffset);
-    	savedInstanceState.putInt("yOffset", yOffset);
-    	savedInstanceState.putInt("mGravity", mGravity);
-
-
-        super.onSaveInstanceState(savedInstanceState);
-    }
-    
-    @Override
-    public void onRestoreInstanceState(Bundle savedInstanceState) {
-      super.onRestoreInstanceState(savedInstanceState);
-      // Restore UI state from the savedInstanceState.
-      // This bundle has also been passed to onCreate.
-
-      xOffset = savedInstanceState.getInt("xOffset");
-      yOffset = savedInstanceState.getInt("yOffset");
-      mGravity = savedInstanceState.getInt("mGravity");
-      
-      
-    } */
     
     public void onStart()
     {
@@ -465,7 +424,6 @@ public class WalkingDisplayActivity extends Activity implements OnCheckedChangeL
     	saveSharedPrefs();
     	
     	Intent intent = new Intent(getApplicationContext(), CameraOverlayService.class);
-    	//intent.putExtra("screen_off", false);
     	startService(intent);
     }
     
@@ -506,19 +464,16 @@ public class WalkingDisplayActivity extends Activity implements OnCheckedChangeL
 
     	barX.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
 
-    	    //@Override
     	    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
     	        xOffset = progress;
     	    	text_xOffset.setText(R.string.xOffset);
     	    	text_xOffset.append(": " + xOffset + " " + getString(R.string.pixels));
     	    }
 
-    	    //@Override
     	    public void onStartTrackingTouch(SeekBar seekBar) {
 
     	    }
 
-    	   // @Override
     	    public void onStopTrackingTouch(SeekBar seekBar) {
 
     	    }
@@ -526,19 +481,16 @@ public class WalkingDisplayActivity extends Activity implements OnCheckedChangeL
     	
     	barY.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
 
-    	    //@Override
     	    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
     	        yOffset = progress;
     	    	text_yOffset.setText(R.string.yOffset);
     	    	text_yOffset.append(": " + yOffset + " " + getString(R.string.pixels));
     	    }
 
-    	   // @Override
     	    public void onStartTrackingTouch(SeekBar seekBar) {
 
     	    }
 
-    	    //@Override
     	    public void onStopTrackingTouch(SeekBar seekBar) {
 
     	    }
@@ -546,19 +498,16 @@ public class WalkingDisplayActivity extends Activity implements OnCheckedChangeL
     	
     	barComp.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
 
-    	    //@Override
     	    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
     	        compression = progress;
     	    	text_compression.setText(R.string.compression);
     	    	text_compression.append(": " + compression + "%");
     	    }
 
-    	    //@Override
     	    public void onStartTrackingTouch(SeekBar seekBar) {
 
     	    }
 
-    	    //@Override
     	    public void onStopTrackingTouch(SeekBar seekBar) {
 
     	    }
@@ -566,19 +515,16 @@ public class WalkingDisplayActivity extends Activity implements OnCheckedChangeL
     	
     	barTrans.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
 
-    	    //@Override
     	    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
     	        transLevel = progress;
     	    	text_transLevel.setText(R.string.trans_level);
     	    	text_transLevel.append(": " + transLevel + "%");
     	    }
 
-    	    //@Override
     	    public void onStartTrackingTouch(SeekBar seekBar) {
 
     	    }
 
-    	    //@Override
     	    public void onStopTrackingTouch(SeekBar seekBar) {
 
     	    }
@@ -586,7 +532,6 @@ public class WalkingDisplayActivity extends Activity implements OnCheckedChangeL
     }
 
 	public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-		// TODO Auto-generated method stub
 		serviceSwitch.setChecked(isChecked);
 		startService();
 	}

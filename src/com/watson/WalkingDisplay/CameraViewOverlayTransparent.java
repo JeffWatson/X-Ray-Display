@@ -104,7 +104,6 @@ public class CameraViewOverlayTransparent extends CameraViewOverlay implements C
         // If your preview can change or rotate, take care of those events here.
         // Make sure to stop the preview before resizing or reformatting it.
         rotationAngle = getRotationAngle();
-        //mCamera.setDisplayOrientation(rotationAngle);
         matrix.setRotate(rotationAngle, width/2, height/2);
         
 	}
@@ -176,7 +175,6 @@ public class CameraViewOverlayTransparent extends CameraViewOverlay implements C
      * @author Jeff Watson
      * Convert data from camera to a image that can have transparency
      */
-	//@Override
 	public void onPreviewFrame(byte[] data, Camera camera) {
 		
 		// YUV formats require more conversion
